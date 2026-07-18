@@ -1,0 +1,42 @@
+STEPS TAKEN TO PREPROCESS THIS TITANIC DATASET. 
+1. Learn about your data - EDA -> info(),duplicate values, null values etc
+
+2. Understand what does one row represent. 
+
+3. Then first take a look at the null values, and understand why are those 
+    values null and what can you do about it? how can you tackle it? take help
+    from graphs. Filling it can be done with mean, median or groupby median, 
+    constant-fill, forward-fill/backward-fill, drop etc
+    
+    Use mean when data is distributed normally & numeric
+    use median when data has outliers (replace with middle value) & numeric
+    Use mode when data is categorical 
+
+4. Then LABEL ENCODING. encode boolean values into 0/1.
+
+5. ONE HOT ENCODING, encoding of attributes which have 3 or 4 values. 
+
+6. FEATURE ENGINEERING finding values from in between the attributes. 
+
+7. BINNING categorizing the attribute in certain bins & labels.
+
+8. DROP unneccasary columns. 
+
+9. Lastly SCALING the numeric features. Always scale when using algorithms 
+    sensitive to feature magnitude: 
+        Logistic Regression, SVM, Neural Networks, KNN, PCA, Gradient 
+        Descent‑based models.
+
+    Not necessary for tree‑based models (Decision Trees, Random Forest, 
+        XGBoost) because they split on thresholds, not distances.
+
+        i) What Features to Scale
+            Continuous numeric features with different ranges:
+                Age (0–80)
+                Fare (0–500+)
+                FamilySize (1–11)
+        ii) Which Method to Use:
+            StandardScaler → default choice, works well in most cases.
+            MinMaxScaler → if you want bounded values (e.g., neural nets with
+                sigmoid).
+            RobustScaler → if your data has heavy outliers (like Titanic Fare).
